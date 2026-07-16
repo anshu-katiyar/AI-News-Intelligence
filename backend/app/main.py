@@ -17,7 +17,7 @@ history_data = []
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://ai-news-intelligence-8h9z.onrender.com"],
+    allow_origins=["http://localhost:5173", "https://ai-news-intelligence-ten.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
