@@ -12,10 +12,11 @@ function Signup() {
   const [password, setPassword] = useState("");
 
   const handleSignup = async () => {
+    console.log("Signup button clicked");
 
     try {
 
-      await api.post("/auth/register", {
+      await api.post("/auth/signup", {
         name,
         email,
         password,
@@ -27,9 +28,15 @@ function Signup() {
 
     } catch (error) {
 
-      toast.error("Signup Failed");
+  console.log("Signup Error:", error);
 
-    }
+  console.log("Response:", error.response);
+
+  console.log("Data:", error.response?.data);
+
+  toast.error(error.response?.data?.detail || "Signup Failed");
+
+}
 
   };
 

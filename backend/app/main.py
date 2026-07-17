@@ -35,3 +35,17 @@ app.include_router(url_router)
 app.include_router(chat_router)
 app.include_router(auth_router)
 app.include_router(dashboard_router)
+
+
+
+
+# from app.database.mongodb import client
+# from backend import app
+
+# @app.get("/test-db")
+# def test_db():
+#     try:
+#         client.admin.command("ping")
+#         return {"status": "MongoDB Connected"}
+#     except Exception as e:
+#         return {"error": str(e)}

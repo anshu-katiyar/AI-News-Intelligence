@@ -13,6 +13,8 @@ function Login() {
 
   const handleLogin = async () => {
 
+    console.log("Login button clicked");
+
     try {
 
       const response = await api.post("/auth/login", {
@@ -31,9 +33,15 @@ navigate("/dashboard");
 
     } catch (error) {
 
-      toast.error("Invalid Email or Password");
+  console.log("Login Error:", error);
 
-    }
+  console.log("Response:", error.response);
+
+  console.log("Data:", error.response?.data);
+
+  toast.error(error.response?.data?.detail || "Login Failed");
+
+}
 
   };
 
