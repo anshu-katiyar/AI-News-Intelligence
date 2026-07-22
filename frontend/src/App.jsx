@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Landing from "./pages/Landing";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+// import Login from "./pages/Login";
+// import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+// import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
@@ -17,19 +17,14 @@ function App() {
 
         <Route path="/" element={<Landing />} />
 
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} />
 
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} /> */}
 
         <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-
+  path="/dashboard"
+  element={<Dashboard />}
+/>
       </Routes>
 
     </BrowserRouter>

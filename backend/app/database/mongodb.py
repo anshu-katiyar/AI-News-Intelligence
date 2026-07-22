@@ -6,8 +6,7 @@ client = MongoClient(
     serverSelectionTimeoutMS=5000
 )
 
-# Connection test
-client.admin.command("ping")
+
 
 db = client["ai_news_db"]
 

@@ -64,9 +64,9 @@ function Sidebar({ activeMenu, setActiveMenu }) {
         </li>
 
         <li
-    onClick={() => setActiveMenu("chat")}
+    onClick={() => setActiveMenu("ai-chat")}
     className={`flex items-center gap-3 cursor-pointer p-2 rounded-lg ${
-        activeMenu === "chat"
+        activeMenu === "ai-chat"
             ? "bg-cyan-500 text-white"
             : "hover:text-cyan-400"
     }`}

@@ -43,7 +43,7 @@ analyze PDFs and chat with AI.
 >
   <Link
 
-to="/login"
+to="/dashboard"
 
 className="mt-10 bg-cyan-500 px-8 py-4 rounded-xl text-xl hover:bg-cyan-600"
 

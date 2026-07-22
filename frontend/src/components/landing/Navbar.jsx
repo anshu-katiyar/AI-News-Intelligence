@@ -8,20 +8,13 @@ function Navbar() {
         🤖 AI News
       </h1>
 
-      <div className="space-x-4">
+      <div>
 
         <Link
-          to="/login"
+          to="/dashboard"
           className="bg-cyan-500 px-5 py-2 rounded-lg hover:bg-cyan-600"
         >
-          Login
-        </Link>
-
-        <Link
-          to="/signup"
-          className="border border-cyan-500 px-5 py-2 rounded-lg hover:bg-cyan-500"
-        >
-          Sign Up
+          🚀 Launch Dashboard
         </Link>
 
       </div>

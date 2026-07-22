@@ -2,8 +2,8 @@ from fastapi import APIRouter
 from app.schemas.news_schema import NewsRequest
 from app.services.gemini_service import analyze_news
 from app.database.mongodb import news_collection
-from fastapi import Depends
-from app.auth.dependencies import get_current_user
+# from fastapi import Depends
+# from app.auth.dependencies import get_current_user
 from bson import ObjectId
 from fastapi.responses import FileResponse
 from app.services.pdf_report_service import generate_pdf
@@ -41,7 +41,7 @@ def analyze_news_api(data: NewsRequest):
 
 
 @router.get("/history")
-def get_history(user=Depends(get_current_user)):
+def get_history():
 
     history = []
 
@@ -55,6 +55,16 @@ def get_history(user=Depends(get_current_user)):
 
 
 @router.delete("/history/{id}")
+def delete_history(id: str):
+
+    news_collection.delete_one({
+        "_id": ObjectId(id)
+    })
+
+    return {
+        "message": "Deleted Successfully"
+    }
+
 
 @router.post("/download-report")
 def download_report(data: dict):
@@ -66,12 +76,3 @@ def download_report(data: dict):
         media_type="application/pdf",
         filename="AI_News_Report.pdf"
     )
-def delete_history(id: str, user=Depends(get_current_user)):
-
-    news_collection.delete_one({
-        "_id": ObjectId(id)
-    })
-
-    return {
-        "message": "Deleted Successfully"
-    }
