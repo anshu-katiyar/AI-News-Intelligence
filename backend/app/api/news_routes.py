@@ -26,13 +26,13 @@ def analyze_news_api(data: NewsRequest):
 
 # })
 
-    news_collection.insert_one({
+#     news_collection.insert_one({
 
-    "news": data.news,
+#     "news": data.news,
 
-    "analysis": result
+#     "analysis": result
 
-})
+# })
 
     result["word_count"] = len(data.news.split())
     result["character_count"] = len(data.news)
