@@ -7,6 +7,7 @@ import UsageChart from "../components/UsageChart";
 import UrlAnalysis from "../components/UrlAnalysis";
 import AIChatPage from "../components/AIChatPage";
 import History from "../components/History";
+import Settings from "../components/Settings";
 
 
 function Dashboard() {
@@ -47,6 +48,10 @@ function Dashboard() {
 
 {activeMenu === "history" && (
     <History />
+)}
+
+{activeMenu === "settings" && (
+    <Settings />
 )}
 
 </div>

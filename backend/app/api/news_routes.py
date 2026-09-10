@@ -13,7 +13,11 @@ router = APIRouter()
 @router.post("/analyze")
 def analyze_news_api(data: NewsRequest):
 
-    result = analyze_news(data.news)
+    result = analyze_news(
+    data.news,
+    data.language,
+    data.summary_length
+)
 #     history_data.append({
 
 #     "news": data.news,

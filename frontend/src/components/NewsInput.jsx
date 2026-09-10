@@ -17,34 +17,84 @@ function NewsInput() {
 
 
   const handleSubmit = async () => {
-    if (!news.trim()) {
-      toast.error("Please enter a news article.");
-      return;
+
+  if (!news.trim()) {
+
+    toast.error("Please enter a news article.");
+
+    return;
+
+  }
+
+
+  try {
+
+    setLoading(true);
+
+
+    // Get latest settings
+    const savedSettings =
+      localStorage.getItem("settings");
+
+
+    const settings = savedSettings
+      ? JSON.parse(savedSettings)
+      : {
+          language: "English",
+          summaryLength: "Medium",
+        };
+
+
+    console.log("Current Settings:", settings);
+
+
+    const response = await api.post("/analyze", {
+
+      news: news,
+
+      language:
+        settings.language || "English",
+
+      summary_length:
+        settings.summaryLength || "Medium",
+
+    });
+
+
+    setResult(response.data);
+
+
+    toast.success("News analyzed successfully ✅");
+
+
+  } catch (error) {
+
+    console.error("Analysis Error:", error);
+
+
+    if (error.response) {
+
+      toast.error(
+        error.response.data?.detail ||
+        "Analysis Failed"
+      );
+
+    } else {
+
+      toast.error(
+        "Backend Connection Failed"
+      );
+
     }
 
-    try {
-      setLoading(true);
 
-      const response = await api.post("/analyze", {
-        news: news,
-      });
+  } finally {
 
-      setResult(response.data);
+    setLoading(false);
 
-    } catch (error) {
-      console.error(error);
+  }
 
-      if (error.response) {
-        alert(error.response.data.detail);
-      } else {
-        toast.error("Backend Connection Failed");
-      }
-
-    } finally {
-      setLoading(false);
-    }
-  };
-
+};
 
   const downloadPDF = async () => {
 
