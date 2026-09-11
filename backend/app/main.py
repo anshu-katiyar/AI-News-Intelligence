@@ -7,7 +7,7 @@ from app.api.url_routes import router as url_router
 from app.api.chat_routes import router as chat_router
 from app.api.auth_routes import router as auth_router
 from app.api.dashboard_routes import router as dashboard_router
-
+from app.api.live_news_routes import router as live_news_router
 
 app = FastAPI(
     title="AI News Intelligence API",
@@ -38,6 +38,7 @@ app.include_router(url_router)
 app.include_router(chat_router)
 app.include_router(auth_router)
 app.include_router(dashboard_router)
+app.include_router(live_news_router)
 
 
 
